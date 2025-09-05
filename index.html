@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueCarbonChain | Blockchain-Powered MRV System</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path d='M448 80v48c0 44.2-100.3 80-224 80S0 172.2 0 128V80C0 35.8 100.3 0 224 0S448 35.8 448 80zM393.2 214.7c20.8-7.4 39.9-16.9 54.8-28.6V288c0 44.2-100.3 80-224 80S0 332.2 0 288V186.1c14.9 11.8 34 21.2 54.8 28.6C99.7 230.7 159.5 240 224 240s124.3-9.3 169.2-25.3zM0 346.1c14.9 11.8 34 21.2 54.8 28.6C99.7 390.7 159.5 400 224 400s124.3-9.3 169.2-25.3c20.8-7.4 39.9-16.9 54.8-28.6V432c0 44.2-100.3 80-224 80S0 476.2 0 432V346.1z'/></svg>" type="image/svg+xml">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="animated-bg" id="animatedBg"></div>
+    <div class="wave-layer"></div>
+    <div class="wave-layer"></div>
+    <div class="wave-layer"></div>
+    <div class="grid-pattern"></div>
+    
+
+    <header>
+        <div class="container header-container">
+            <div class="logo" id="homeLink">
+                <i class="fas fa-leaf logo-icon"></i>
+                <span>BlueCarbonChain</span>
+            </div>
+
+            <nav class="nav-links">
+                <a data-section="dashboard">Dashboard</a>
+                <a data-section="projects">Projects</a>
+                <a data-section="data-upload">Data Upload</a>
+                <a data-section="carbon-credits">Carbon Credits</a>
+                <a data-section="about">About</a>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="connect-wallet" id="connectWallet">
+                    <i class="fas fa-wallet"></i> Connect Wallet
+                </button>
+                <button class="connect-wallet" id="profileLink" style="display: none;">
+                    <i class="fas fa-user"></i> Profile
+                </button>
+            </div>
+
+            <button class="mobile-nav-toggle" id="mobileNavToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="nav-links">
+            <a data-section="dashboard">Dashboard</a>
+            <a data-section="projects">Projects</a>
+            <a data-section="data-upload">Data Upload</a>
+            <a data-section="carbon-credits">Carbon Credits</a>
+            <a data-section="about">About</a>
+        </nav>
+
+        <div class="header-actions">
+            <button class="theme-toggle" id="mobileThemeToggle">
+                <i class="fas fa-moon"></i> Toggle Theme
+            </button>
+            <button class="connect-wallet" id="mobileConnectWallet">
+                <i class="fas fa-wallet"></i> Connect Wallet
+            </button>
+            <button class="connect-wallet" id="mobileProfileLink" style="display: none;">
+                <i class="fas fa-user"></i> Profile
+            </button>
+        </div>
+    </div>
+
+    <!-- Home/Landing Page (default visible) -->
+    <section id="home" class="page-section active">
+        <section class="hero">
+            <div class="container">
+                <h1>Blockchain-Powered Blue Carbon Ecosystem Restoration</h1>
+                <p>Decentralized Monitoring, Reporting, and Verification (MRV) system for transparent and accurate carbon credit generation</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="exploreDemoBtn">
+                        <i class="fas fa-play"></i> Explore Demo
+                    </button>
+                    <button class="btn btn-secondary" id="readDocsBtn">
+                        <i class="fas fa-book"></i> Read Documentation
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">Our <span>Solutions</span></h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Blockchain Registry</h3>
+                        <p>Immutable storage of verified plantation and restoration data using distributed ledger technology for maximum transparency.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h3>Tokenized Carbon Credits</h3>
+                        <p>Smart contracts for tokenization of carbon credits, enabling seamless trading and verification of environmental impact.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Stakeholder Onboarding</h3>
+                        <p>Comprehensive tools for onboarding NGOs, communities, and coastal panchayats to participate in blue carbon initiatives.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-drone"></i>
+                        </div>
+                        <h3>Field Data Integration</h3>
+                        <p>Seamless integration of field data from mobile apps and drones for accurate and real-time monitoring of restoration projects.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="dashboard">
+            <div class="container">
+                <h2 class="section-title">Project <span>Dashboard</span></h2>
+                <div class="dashboard-preview">
+                    <div class="dashboard-tabs">
+                        <div class="dashboard-tab active">Overview</div>
+                        <div class="dashboard-tab">Projects</div>
+                        <div class="dashboard-tab">Credits</div>
+                        <div class="dashboard-tab">Reports</div>
+                    </div>
+                    <div class="dashboard-content">
+                        <div class="metric-card">
+                            <div class="metric-value">12,458</div>
+                            <div class="metric-label">Carbon Credits Generated</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">42</div>
+                            <div class="metric-label">Active Projects</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">28</div>
+                            <div class="metric-label">Verified NGOs</div>
+                        </div>
+                        <div class="metric-card">
+                            <div class="metric-value">24,921</div>
+                            <div class="metric-label">CO₂ Sequestered (tons)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                                <h2 class="section-title">What Our <span>Partners</span> Say</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The blockchain-based MRV system has revolutionized how we monitor and verify our mangrove restoration projects. The transparency has increased trust among our stakeholders."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">SP</div>
+                            <div class="author-details">
+                                <h4>Dr. Sunita Patel</h4>
+                                <p class="author-role">Director, EcoRestore India</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Tokenizing our carbon credits has made it easier to trade and monetize our environmental efforts. The platform is intuitive and the verification process is robust."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">RK</div>
+                            <div class="author-details">
+                                <h4>Rajesh Kumar</h4>
+                                <p class="author-role">Coastal Community Leader</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"The drone integration feature has significantly reduced our monitoring costs while improving data accuracy. This is exactly what the blue carbon ecosystem needed."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AM</div>
+                            <div class="author-details">
+                                <h4>Anika Mehta</h4>
+                                <p class="author-role">Marine Biologist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2>Ready to Transform Blue Carbon Management?</h2>
+                <p>Join our platform to participate in transparent, verifiable blue carbon ecosystem restoration and carbon credit generation</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" id="registerButton">
+                        <i class="fas fa-user-plus"></i> Register Your Organization
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-file-alt"></i> Download Whitepaper
+                    </button>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Project <span>Dashboard</span></h2>
+            <div class="dashboard-preview">
+                <div class="dashboard-tabs">
+                    <div class="dashboard-tab active">Overview</div>
+                    <div class="dashboard-tab">Projects</div>
+                    <div class="dashboard-tab">Credits</div>
+                    <div class="dashboard-tab">Reports</div>
+                </div>
+                <div class="dashboard-content">
+                    <div class="metric-card">
+                        <div class="metric-value">12,458</div>
+                        <div class="metric-label">Carbon Credits Generated</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">42</div>
+                        <div class="metric-label">Active Projects</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">28</div>
+                        <div class="metric-label">Verified NGOs</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">24,921</div>
+                        <div class="metric-label">CO₂ Sequestered (tons)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="page-section">
+        <div class="container">
+            <h2 class="section-title">About <span>Us</span></h2>
+            
+            <div class="feature-card">
+                <h3>Our Mission</h3>
+                <p>BlueCarbonChain is dedicated to revolutionizing blue carbon ecosystem restoration through blockchain technology. Our mission is to provide a transparent, verifiable and efficient system for monitoring, reporting and verification (MRV) of carbon sequestration projects.</p>
+                
+                <h3>Why Blue Carbon?</h3>
+                <p>Blue carbon ecosystems (mangroves, seagrasses, and salt marshes) are among the most efficient carbon sinks on Earth. However, they face significant threats from coastal development and climate change. Our platform enables effective restoration and conservation of these vital ecosystems.</p>
+                
+                <h3>Our Technology</h3>
+                <p>Using blockchain technology, we create an immutable record of restoration activities and carbon credit generation. This ensures transparency, prevents double-counting, and builds trust among all stakeholders including NGOs, communities, investors, and regulators.</p>
+            </div>
+            
+            <div class="feature-card" style="margin-top: 30px;">
+                <h3>Our Team</h3>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JD</div>
+                            <div class="author-details">
+                                <h4>Jane Doe</h4>
+                                <p class="author-role">Founder & CEO</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">10+ years in environmental science and blockchain technology.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-details">
+                                <h4>John Smith</h4>
+                                <p class="author-role">CTO</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Blockchain architect with expertise in sustainable tech solutions.</p>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-author">
+                            <div class="author-avatar">AR</div>
+                            <div class="author-details">
+                                <h4>Amara Rodriguez</h4>
+                                <p class="author-role">Head of Marine Biology</p>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">Marine ecologist specializing in coastal ecosystem restoration.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Section -->
+    <section id="profile" class="page-section">
+        <div class="container">
+            <h2 class="section-title">User <span>Profile</span></h2>
+            <div class="profile-container">
+                <div class="profile-sidebar">
+                    <div class="user-avatar" id="userAvatar">JD</div>
+                    <h3 id="userName">John Doe</h3>
+                    <p id="userRole">Organization Member</p>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <div class="stat-value">5</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="profile-stat">
+                            <div class="stat-value">1,240</div>
+                            <div class="stat-label">Credits</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="profile-content">
+                    <h3>Account Details</h3>
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="profileName" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="profileEmail" value="john.doe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Organization</label>
+                        <input type="text" id="profileOrg" value="EcoRestore India">
+                    </div>
+                    <button class="form-submit">Save Changes</button>
+                    
+                    <h3 style="margin-top: 30px;">Connected Wallets</h3>
+                    <div class="feature-card" style="background-color: var(--background);">
+                        <p><i class="fas fa-wallet"></i> MetaMask: 0x742d...35c9</p>
+                        <button class="connect-wallet" style="margin-top: 15px; background-color: var(--error);">
+                            <i class="fas fa-unlink"></i> Disconnect
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Project <span>Portfolio</span></h2>
+            
+            <div class="marketplace-filters">
+                <div class="filter-group">
+                    <label>Project Status</label>
+                    <select>
+                        <option>All Projects</option>
+                        <option>Active</option>
+                        <option>Completed</option>
+                        <option>Verification</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Ecosystem Type</label>
+                    <select>
+                        <option>All Ecosystems</option>
+                        <option>Mangrove</option>
+                        <option>Seagrass</option>
+                        <option>Salt Marsh</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Region</label>
+                    <select>
+                        <option>All Regions</option>
+                        <option>Southeast Asia</option>
+                        <option>South Asia</option>
+                        <option>Africa</option>
+                        <option>Latin America</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sundarbans Mangrove Restoration</h3>
+                        <p class="project-description">Replanting 500 hectares of mangrove forest in the Sundarbans delta to protect against erosion and sequester carbon.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">92%</div>
+                                <div class="project-stat-label">Completed</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">2,450</div>
+                                <div class="project-stat-label">Credits</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Philippines Seagrass Conservation</h3>
+                        <p class="project-description">Protecting and restoring seagrass meadows across the Philippine archipelago to preserve marine biodiversity.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">78%</div>
+                                <div class="project-stat-label">Completed</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">1,870</div>
+                                <div class="project-stat-label">Credits</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Amazon Coastal Marsh Project</h3>
+                        <p class="project-description">Restoring salt marsh ecosystems along the Brazilian coast to enhance carbon sequestration and storm protection.</p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">35%</div>
+                                <div class="project-stat-label">Completed</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">890</div>
+                                <div class="project-stat-label">Credits</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Upload Section -->
+    <section id="data-upload" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Data <span>Upload</span></h2>
+            
+            <div class="upload-form">
+                <div class="form-section">
+                    <h3 class="form-section-title"><i class="fas fa-info-circle"></i> Project Information</h3>
+                    <div class="form-group">
+                        <label for="project-select">Select Project</label>
+                        <select id="project-select" required>
+                            <option value="">Select a project</option>
+                            <option value="sundarbans">Sundarbans Mangrove Restoration</option>
+                            <option value="philippines">Philippines Seagrass Conservation</option>
+                            <option value="amazon">Amazon Coastal Marsh Project</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="upload-date">Data Collection Date</label>
+                        <input type="date" id="upload-date" required>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title"><i class="fas fa-file-upload"></i> Upload Data Files</h3>
+                    
+                    <div class="file-upload" id="dropZone">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop your files here or click to browse</p>
+                        <button class="btn btn-primary">Select Files</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="data-type">Data Type</label>
+                        <select id="data-type" required>
+                            <option value="">Select data type</option>
+                            <option value="satellite">Satellite Imagery</option>
+                            <option value="drone">Drone Survey</option>
+                            <option value="field">Field Measurements</option>
+                            <option value="sensor">Sensor Data</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h3 class="form-section-title"><i class="fas fa-clipboard-list"></i> Additional Information</h3>
+                    
+                    <div class="form-group">
+                        <label for="data-notes">Notes & Observations</label>
+                        <textarea id="data-notes" rows="4" placeholder="Add any relevant observations about the data collection process or conditions"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="data-quality">Data Quality Rating</label>
+                        <select id="data-quality">
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="form-submit"><i class="fas fa-paper-plane"></i> Submit Data</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Credits Section -->
+    <section id="carbon-credits" class="page-section">
+        <div class="container">
+            <h2 class="section-title">Carbon <span>Credits</span> Marketplace</h2>
+            
+            <div class="marketplace-filters">
+                <div class="filter-group">
+                    <label>Project Type</label>
+                    <select>
+                        <option>All Projects</option>
+                        <option>Mangrove</option>
+                        <option>Seagrass</option>
+                        <option>Salt Marsh</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <select>
+                        <option>Any Price</option>
+                        <option>Under $10</option>
+                        <option>$10 - $25</option>
+                        <option>$25 - $50</option>
+                        <option>Over $50</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Verification Status</label>
+                    <select>
+                        <option>All Statuses</option>
+                        <option>Verified</option>
+                        <option>Pending</option>
+                        <option>Gold Standard</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="credits-grid">
+                <div class="credit-card">
+                    <div class="credit-header">
+                        <h3>Mangrove Carbon</h3>
+                        <p>$18.50 per credit</p>
+                    </div>
+                    <div class="credit-body">
+                        <div class="credit-detail">
+                            <span>Project:</span>
+                            <span>Sundarbans Restoration</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Available:</span>
+                            <span>1,240 credits</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Verification:</span>
+                            <span>Verified</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Vintage:</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                    <div class="credit-action">
+                        <button class="connect-wallet" style="width: 100%;">
+                            <i class="fas fa-shopping-cart"></i> Purchase Credits
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="credit-card">
+                    <div class="credit-header">
+                        <h3>Seagrass Carbon</h3>
+                        <p>$22.75 per credit</p>
+                    </div>
+                    <div class="credit-body">
+                        <div class="credit-detail">
+                            <span>Project:</span>
+                            <span>Philippines Conservation</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Available:</span>
+                            <span>850 credits</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Verification:</span>
+                            <span>Gold Standard</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Vintage:</span>
+                            <span>2023</span>
+                        </div>
+                    </div>
+                    <div class="credit-action">
+                        <button class="connect-wallet" style="width: 100%;">
+                            <i class="fas fa-shopping-cart"></i> Purchase Credits
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="credit-card">
+                    <div class="credit-header">
+                        <h3>Salt Marsh Carbon</h3>
+                        <p>$16.20 per credit</p>
+                    </div>
+                    <div class="credit-body">
+                        <div class="credit-detail">
+                            <span>Project:</span>
+                            <span>Amazon Coast Initiative</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Available:</span>
+                            <span>1,850 credits</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Verification:</span>
+                            <span>Pending</span>
+                        </div>
+                        <div class="credit-detail">
+                            <span>Vintage:</span>
+                            <span>2024</span>
+                        </div>
+                    </div>
+                    <div class="credit-action">
+                        <button class="connect-wallet" style="width: 100%;">
+                            <i class="fas fa-shopping-cart"></i> Purchase Credits
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    Documentation Modal
+    <div class="modal" id="documentationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>BlueCarbonChain Documentation</h2>
+                <button class="close-modal" id="closeDocsModal">&times;</button>
+            </div>
+            
+            <div class="docs-container">
+                <div class="docs-sidebar">
+                    <h3>Contents</h3>
+                    <ul class="docs-nav">
+                        <li><a href="#intro">Introduction</a></li>
+                        <li><a href="#getting-started">Getting Started</a></li>
+                        <li><a href="#data-upload-guide">Data Upload Guide</a></li>
+                        <li><a href="#credit-verification">Credit Verification</a></li>
+                        <li><a href="#marketplace">Marketplace Guide</a></li>
+                        <li><a href="#api">API Reference</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="docs-content">
+                    <div class="docs-section">
+                        <h3 id="intro">Introduction to BlueCarbonChain</h3>
+                        <p>BlueCarbonChain is a blockchain-powered platform designed to bring transparency and efficiency to blue carbon ecosystem restoration projects. Our system provides an end-to-end solution for Monitoring, Reporting, and Verification (MRV) of carbon sequestration activities.</p>
+                        
+                        <p>This documentation will help you understand how to use our platform effectively, from data upload to carbon credit trading.</p>
+                    </div>
+                    
+                    <div class="docs-section">
+                        <h3 id="getting-started">Getting Started</h3>
+                        <p>To begin using BlueCarbonChain, follow these steps:</p>
+                        <ol>
+                            <li>Register your organization using the registration form</li>
+                            <li>Connect your cryptocurrency wallet to the platform</li>
+                            <li>Set up your first project in the Projects section</li>
+                            <li>Begin uploading monitoring data through the Data Upload interface</li>
+                            <li>Once verified, your carbon credits will be available in the Marketplace</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="docs-section">
+                        <h3 id="data-upload-guide">Data Upload Guide</h3>
+                        <p>Proper data collection and upload is essential for carbon credit verification. We accept the following data types:</p>
+                        
+                        <ul>
+                            <li><strong>Satellite Imagery:</strong> High-resolution satellite images of project areas</li>
+                            <li><strong>Drone Surveys:</strong> Orthomosaic maps and 3D models from drone flights</li>
+                            <li><strong>Field Measurements:</strong> Ground-truthing data including biomass samples</li>
+                            <li><strong>Sensor Data:</strong> Continuous monitoring from IoT sensors</li>
+                        </ul>
+                        
+                        <p>All data should be uploaded in standardized formats with complete metadata. Our system will automatically verify data integrity and consistency before processing.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Demo Modal -->
+    <div class="modal" id="demoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>BlueCarbonChain Platform Demo</h2>
+                <button class="close-modal" id="closeDemoModal">&times;</button>
+            </div>
+            
+            <div class="demo-video-container">
+                <!-- In a real implementation, this would be an actual video -->
+                <div style="width: 100%; height: 100%; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); display: flex; align-items: center; justify-content: center; color: white;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-play-circle" style="font-size: 4rem; margin-bottom: 15px;"></i>
+                        <h3>BlueCarbonChain Platform Walkthrough</h3>
+                        <p>Video demonstration of our MRV system</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin: 20px 0;">
+                <h3>Key Features Demonstrated</h3>
+                <ul style="padding-left: 20px; margin-top: 10px;">
+                    <li>Project setup and management</li>
+                    <li>Data upload and verification process</li>
+                    <li>Carbon credit tokenization</li>
+                    <li>Marketplace functionality</li>
+                    <li>Reporting and analytics dashboard</li>
+                </ul>
+            </div>
+            
+            <button class="form-submit" style="margin-top: 20px;">
+                <i class="fas fa-rocket"></i> Start Free Trial
+            </button>
+        </div>
+    </div>
+
+    <!-- Registration Modal -->
+    <div class="modal" id="registrationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Register Your Organization</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="registrationForm">
+                <div class="form-group">
+                    <label for="orgName">Organization Name</label>
+                    <input type="text" id="orgName" required>
+                </div>
+                <div class="form-group">
+                    <label for="fullName">Your Full Name</label>
+                    <input type="text" id="fullName" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="orgType">Organization Type</label>
+                    <select id="orgType" required>
+                        <option value="">Select organization type</option>
+                        <option value="ngo">NGO</option>
+                        <option value="community">Community Organization</option>
+                        <option value="government">Government Agency</option>
+                        <option value="research">Research Institution</option>
+                        <option value="private">Private Company</option>
+                    </select>
+                </div>
+                <button type="submit" class="form-submit">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>BlueCarbonChain</h3>
+                    <p>Transparent, verifiable blue carbon ecosystem restoration through blockchain technology.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Platform</h3>
+                    <ul class="footer-links">
+                        <li><a data-section="dashboard">Dashboard</a></li>
+                        <li><a data-section="projects">Projects</a></li>
+                        <li><a data-section="carbon-credits">Carbon Credits</a></li>
+                        <li><a data-section="data-upload">Data Upload</a></li>
+                        <li><a data-section="about">Analytics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" id="footerDocs">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">API Reference</a></li>
+                        <li><a href="#">Whitepaper</a></li>
+                        <li><a href="#">Case Studies</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul class="footer-links">
+                        <li><a data-section="about">About Us</a></li>
+                        <li><a href="#">Partners</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BlueCarbonChain. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
